@@ -1,0 +1,180 @@
+RewriteEngine On
+#RewriteCond %{HTTPS} on
+#RewriteRule (.*) http://%{HTTP_HOST}%{REQUEST_URI} [R,L]
+
+RewriteRule ^test$ test.php
+RewriteRule ^test/$ test.php/
+
+RewriteRule ^login$ login.php
+RewriteRule ^login/$ login.php/
+
+RewriteRule ^index$ index.php
+RewriteRule ^index/$ index.php
+RewriteRule ^index/([a-zA-Z0-9_-]+)$ index.php?id=$1
+RewriteRule ^index/([a-zA-Z0-9_-]+)/$ index.php?id=$1
+
+RewriteRule ^dashboard$ dashboard.php
+RewriteRule ^dashboard/$ dashboard.php/
+
+RewriteRule ^logout$ logout.php
+RewriteRule ^logout/$ logout.php/
+
+RewriteRule ^forgot-password$ forgot-password.php
+RewriteRule ^forgot-password/$ forgot-password.php
+
+RewriteRule ^reset-password$ reset-password.php
+RewriteRule ^reset-password/$ reset-password.php/
+RewriteRule ^reset-password/([a-zA-Z0-9_-]+)$ reset-password.php?id=$1
+RewriteRule ^reset-password/([a-zA-Z0-9_-]+)/$ reset-password.php?id=$1
+
+RewriteRule ^account-settings$ account-settings.php
+RewriteRule ^account-settings/$ account-settings.php/
+RewriteRule ^account-settings/([a-zA-Z0-9_-]+)$ account-settings.php?tab_name=$1
+RewriteRule ^account-settings/([a-zA-Z0-9_-]+)/$ account-settings.php?tab_name=$1
+
+RewriteRule ^account-settings$ account-settings.php
+RewriteRule ^account-settings/$ account-settings.php/
+
+RewriteRule ^settings$ settings.php
+RewriteRule ^settings/$ settings.php/
+
+RewriteRule ^signup$ signup.php
+RewriteRule ^signup/$ signup.php/
+
+RewriteRule ^profile-details$ profile-details.php
+RewriteRule ^profile-details/$ profile-details.php/
+
+RewriteRule ^view-profile-images$ view-profile-images.php
+RewriteRule ^view-profile-images/$ view-profile-images.php/
+
+RewriteRule ^add-profile-images$ add-profile-images.php
+RewriteRule ^add-profile-images/$ add-profile-images.php/
+
+RewriteRule ^edit-profile-images$ edit-profile-images.php
+RewriteRule ^edit-profile-images/$ edit-profile-images.php/
+RewriteRule ^edit-profile-images/([a-zA-Z0-9_-]+)$ edit-profile-images.php?id=$1
+RewriteRule ^edit-profile-images/([a-zA-Z0-9_-]+)/$ edit-profile-images.php?id=$1
+
+RewriteRule ^view-profile-messages$ view-profile-messages.php
+RewriteRule ^view-profile-messages/$ view-profile-messages.php/
+
+RewriteRule ^add-profile-messages$ add-profile-messages.php
+RewriteRule ^add-profile-messages/$ add-profile-messages.php/
+
+RewriteRule ^edit-profile-messages$ edit-profile-messages.php
+RewriteRule ^edit-profile-messages/$ edit-profile-messages.php/
+RewriteRule ^edit-profile-messages/([a-zA-Z0-9_-]+)$ edit-profile-messages.php?id=$1
+RewriteRule ^edit-profile-messages/([a-zA-Z0-9_-]+)/$ edit-profile-messages.php?id=$1
+
+RewriteRule ^new-orders$ new-orders.php
+RewriteRule ^new-orders/$ new-orders.php/
+
+RewriteRule ^cancelled-orders$ cancelled-orders.php
+RewriteRule ^cancelled-orders/$ cancelled-orders.php/
+
+RewriteRule ^return-orders$ return-orders.php
+RewriteRule ^return-orders/$ return-orders.php/
+
+RewriteRule ^view-order$ view-order.php
+RewriteRule ^view-order/$ view-order.php/
+RewriteRule ^view-order/([a-zA-Z0-9_-]+)$ view-order.php?id=$1
+RewriteRule ^view-order/([a-zA-Z0-9_-]+)/$ view-order.php?id=$1
+
+
+RewriteRule ^view-services-request$ view-services-request.php
+RewriteRule ^view-services-request/$ view-services-request.php/
+
+RewriteRule ^add-services-request$ add-services-request.php
+RewriteRule ^add-services-request/$ add-services-request.php/
+
+RewriteRule ^edit-services-request$ edit-services-request.php
+RewriteRule ^edit-services-request/$ edit-services-request.php/
+RewriteRule ^edit-services-request/([a-zA-Z0-9_-]+)$ edit-services-request.php?id=$1
+RewriteRule ^edit-services-request/([a-zA-Z0-9_-]+)/$ edit-services-request.php?id=$1
+
+RewriteRule ^view-brand-request$ view-brand-request.php
+RewriteRule ^view-brand-request/$ view-brand-request.php/
+
+RewriteRule ^brand-request-details$ brand-request-details.php
+RewriteRule ^brand-request-details/$ brand-request-details.php/
+RewriteRule ^brand-request-details/([a-zA-Z0-9_-]+)$ brand-request-details.php?id=$1
+RewriteRule ^brand-request-details/([a-zA-Z0-9_-]+)/$ brand-request-details.php?id=$1
+
+RewriteRule ^upload-video$ upload-video.php
+RewriteRule ^upload-video/$ upload-video.php/
+RewriteRule ^upload-video/([a-zA-Z0-9_-]+)$ upload-video.php?id=$1
+RewriteRule ^upload-video/([a-zA-Z0-9_-]+)/$ upload-video.php?id=$1
+
+RewriteRule ^view-celebrity-price$ view-celebrity-price.php
+RewriteRule ^view-celebrity-price/$ view-celebrity-price.php/
+
+RewriteRule ^edit-celebrity-price$ edit-celebrity-price.php
+RewriteRule ^edit-celebrity-price/$ edit-celebrity-price.php/
+RewriteRule ^edit-celebrity-price/([a-zA-Z0-9_-]+)$ edit-celebrity-price.php?id=$1
+RewriteRule ^edit-celebrity-price/([a-zA-Z0-9_-]+)/$ edit-celebrity-price.php?id=$1
+
+RewriteRule ^view-payment$ view-payment.php
+RewriteRule ^view-payment/$ view-payment.php/
+
+
+# compress text, html, javascript, css, xml:
+<IfModule mod_deflate.c>
+  # Compress HTML, CSS, JavaScript, Text, XML and fonts
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/rss+xml
+  AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+  AddOutputFilterByType DEFLATE application/x-font
+  AddOutputFilterByType DEFLATE application/x-font-opentype
+  AddOutputFilterByType DEFLATE application/x-font-otf
+  AddOutputFilterByType DEFLATE application/x-font-truetype
+  AddOutputFilterByType DEFLATE application/x-font-ttf
+  AddOutputFilterByType DEFLATE application/x-javascript
+  AddOutputFilterByType DEFLATE application/xhtml+xml
+  AddOutputFilterByType DEFLATE application/xml
+  AddOutputFilterByType DEFLATE font/opentype
+  AddOutputFilterByType DEFLATE font/otf
+  AddOutputFilterByType DEFLATE font/ttf
+  AddOutputFilterByType DEFLATE image/svg+xml
+  AddOutputFilterByType DEFLATE image/x-icon
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/javascript
+  AddOutputFilterByType DEFLATE text/plain
+  AddOutputFilterByType DEFLATE text/xml
+
+  # Remove browser bugs (only needed for really old browsers)
+  BrowserMatch ^Mozilla/4 gzip-only-text/html
+  BrowserMatch ^Mozilla/4\.0[678] no-gzip
+  BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+  Header append Vary User-Agent
+</IfModule>
+
+# Leverage Browser Caching
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpg "access 1 year"
+  ExpiresByType image/jpeg "access 1 year"
+  ExpiresByType image/gif "access 1 year"
+  ExpiresByType image/png "access 1 year"
+  ExpiresByType text/css "access 1 month"
+  ExpiresByType text/html "access 1 month"
+  ExpiresByType application/pdf "access 1 month"
+  ExpiresByType text/x-javascript "access 1 month"
+  ExpiresByType application/x-shockwave-flash "access 1 month"
+  ExpiresByType image/x-icon "access 1 year"
+  ExpiresDefault "access 1 month"
+</IfModule>
+<IfModule mod_headers.c>
+  <filesmatch "\.(ico|flv|jpg|jpeg|png|gif|css|swf)$">
+  Header set Cache-Control "max-age=2678400, public"
+  </filesmatch>
+  <filesmatch "\.(html|htm)$">
+  Header set Cache-Control "max-age=7200, private, must-revalidate"
+  </filesmatch>
+  <filesmatch "\.(pdf)$">
+  Header set Cache-Control "max-age=86400, public"
+  </filesmatch>
+  <filesmatch "\.(js)$">
+  Header set Cache-Control "max-age=2678400, private"
+  </filesmatch>
+</IfModule>
