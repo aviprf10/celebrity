@@ -7,7 +7,7 @@ if($user == 1)
 	$address_html_message='';
 	$select_address_dropdown_html='';
 	if(isset($_POST))
-	{
+	{ 
     $first_name=Secure1($db_mysqli,$_POST['first_name']);
     $last_name=Secure1($db_mysqli,$_POST['last_name']);
     $company=Secure1($db_mysqli,$_POST['company']);
