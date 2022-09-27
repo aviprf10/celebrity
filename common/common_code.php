@@ -301,6 +301,16 @@ else if ($current_page == 'celebrity-details.php')
     
     $celebrity_details = $celebrity_details_data_array[0];
 
+
+    $related_user_list_data_array = array();
+    $get_related_user_list_query = 'select u.*, cp.price as celebrity_price, cp.status as price_status, cp.discount_type, cp.discount from user u left join celebrity_details c on u.id=c.celebrity_id left join celebrity_price cp on u.id=cp.celebrity_id where CONCAT(",", c.category_id, ",") REGEXP ",('.$category_id.')," and u.status="1" and u.is_deleted="0" and u.user_type="2" and cp.price > "0" group by u.id';
+    $result_get_related_user_list_query = mysqli_query($db_mysqli, $get_related_user_list_query);
+    while ($row_get_related_user_list_query = mysqli_fetch_assoc($result_get_related_user_list_query))
+    {
+        $related_user_list_data_array[] = $row_get_related_user_list_query;
+    } 
+
+
 } 
 else if (($current_page == 'my-account.php') || ($current_page == 'account-information.php') || ($current_page == 'newsletter-subscription.php') || ($current_page == 'checkout.php') || ($current_page == 'address-book.php') || ($current_page == 'add-new-address.php') || ($current_page == 'edit-address.php'))
 {

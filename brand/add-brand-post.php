@@ -120,10 +120,10 @@ if($brand == 1)
                                         <div class="col-md-6" id="subcategory_div"></div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Brand Cost : <span class="text-danger">*</span></label>
+                                                <label> Filter Brand Cost : <span class="text-danger">*</span></label>
                                                 <input type="number" class="form-control" id="price"
                                                     name="price" onkeyup="get_celebritydetails()"
-                                                    placeholder="Enter Brand Cost"
+                                                    placeholder="Enter Filter Brand Cost"
                                                     data-parsley-required="true">
                                             </div>
                                         </div>
@@ -240,8 +240,8 @@ if($brand == 1)
                                 $.notifyBar({cssClass: "success", html: data.html_message});
                                 setTimeout(function ()
                                 {
-                                    window.top.location="<?php echo $base_url1; ?>view-brand-post";
-                                }, 3000);
+                                    window.top.location="<?php echo $base_url1; ?>payment-brand-post";
+                                }, 1000);
                                 //dataTable.ajax.reload();
                             }
                             else

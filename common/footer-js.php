@@ -34,3 +34,4 @@ function closeModel()
 <script type="text/javascript" src="<?php echo $base_url_js;?>plugins/growl/jquery.growl.js"></script>
 <script type="text/javascript" src="<?php echo $base_url_js;?>plugins/parsley/parsley.min.js"></script>
 <script type="text/javascript" src="<?php echo $base_url_js;?>plugins/loaders/blockui.min.js"></script>
+<script src="<?php echo $base_url_js;?>plugins/notifybar/jquery.notifyBar.js"></script>

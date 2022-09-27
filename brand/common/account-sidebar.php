@@ -7,6 +7,7 @@
         <li><a href="<?php echo $base_url1;?>edit-password" <?php if($current_page == 'edit-password.php'){ echo 'class="nav-link active"';}else{ echo 'class="nav-link"';} ?>>Chnage Password</a></li>
         <li><a href="<?php echo $base_url1;?>view-brand-payment" <?php if($current_page == 'view-brand-payment.php' || $current_page == 'add-brand-payment.php'){ echo 'class="nav-link active"';}else{ echo 'class="nav-link"';} ?>>Payment History</a></li>
         <li><a href="<?php echo $base_url1;?>view-video-history" <?php if($current_page == 'view-video-history.php' || $current_page == 'edit-video-history.php'){ echo 'class="nav-link active"';}else{ echo 'class="nav-link"';} ?>>Video History</a></li>
+        <li><a href="<?php echo $base_url1;?>add-support" <?php if($current_page == 'add-support.php'){ echo 'class="nav-link active"';}else{ echo 'class="nav-link"';} ?>>Support</a></li>
         <li><a href="<?php echo $base_url1;?>logout">logout</a></li>
     </ul>
     <!-- End Nav tabs -->

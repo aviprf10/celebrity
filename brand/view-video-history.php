@@ -70,7 +70,7 @@ if($brand == 1)
                                     <h5><?php echo $module_full_name; ?></h5>
                                 </div>
                                  <div class="col-md-5">
-                                    <a href="view-<?php echo $module_name; ?>" class="btn btn-primary">View <?php echo $module_full_name; ?></a>
+                                    <a href="view-<?php echo $module_name; ?>" class="btn btn-primary" style="float:right;">View <?php echo $module_full_name; ?></a>
                                    <br><br>
                                 </div>
                             </div>

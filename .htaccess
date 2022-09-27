@@ -267,6 +267,9 @@ RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
 RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
 RewriteRule ^return-order/([a-zA-Z0-9_-]+)/$ return-order.php?order_id=$1
 
+RewriteRule ^add-support$ add-support.php
+RewriteRule ^add-support/$ add-support.php/
+
 
 
 # compress text, html, javascript, css, xml:

@@ -464,6 +464,8 @@ RewriteRule ^edit-celebrity-price/$ edit-celebrity-price.php/
 RewriteRule ^edit-celebrity-price/([a-zA-Z0-9_-]+)$ edit-celebrity-price.php?id=$1
 RewriteRule ^edit-celebrity-price/([a-zA-Z0-9_-]+)/$ edit-celebrity-price.php?id=$1
 
+RewriteRule ^view-support$ view-support.php
+RewriteRule ^view-support/$ view-support.php/
 
 
 # compress text, html, javascript, css, xml:

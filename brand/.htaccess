@@ -53,6 +53,10 @@ RewriteRule ^reset-password/([a-zA-Z0-9_-]+)/$ reset-password.php?id=$1
 
 RewriteRule ^view-brand-post$ view-brand-post.php
 RewriteRule ^view-brand-post/$ view-brand-post.php/
+RewriteRule ^view-brand-post/([a-zA-Z0-9_-]+)$ view-brand-post.php?id=$1
+RewriteRule ^view-brand-post/([a-zA-Z0-9_-]+)/$ view-brand-post.php?id=$1
+RewriteRule ^view-brand-post/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ view-brand-post.php?id=$1&last_id=$2
+RewriteRule ^view-brand-post/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/$ view-brand-post.php?id=$1&last_id=$2
 
 RewriteRule ^add-brand-post$ add-brand-post.php
 RewriteRule ^add-brand-post/$ add-brand-post.php/
@@ -85,6 +89,9 @@ RewriteRule ^view-brand-payment/$ view-brand-payment.php/
 RewriteRule ^add-brand-payment$ add-brand-payment.php
 RewriteRule ^add-brand-payment/$ add-brand-payment.php/
 
+RewriteRule ^add-support$ add-support.php
+RewriteRule ^add-support/$ add-support.php/
+
 RewriteRule ^view-video-history$ view-video-history.php
 RewriteRule ^view-video-history/$ view-video-history.php/
 
@@ -92,6 +99,9 @@ RewriteRule ^edit-video-history$ edit-video-history.php
 RewriteRule ^edit-video-history/$ edit-video-history.php/
 RewriteRule ^edit-video-history/([a-zA-Z0-9_-]+)$ edit-video-history.php?id=$1
 RewriteRule ^edit-video-history/([a-zA-Z0-9_-]+)/$ edit-video-history.php?id=$1
+
+RewriteRule ^payment-brand-post$ payment-brand-post.php
+RewriteRule ^payment-brand-post/$ payment-brand-post.php/
 
 
 # compress text, html, javascript, css, xml:

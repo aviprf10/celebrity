@@ -5,6 +5,7 @@
         <li><a href="<?php echo $base_url;?>edit-password" <?php if($current_page == 'edit-password.php'){ echo 'class="nav-link active"';}else{ echo 'class="nav-link"';} ?>>Chnage Password</a></li>
         <li><a href="<?php echo $base_url;?>my-wishlist" <?php if($current_page == 'my-wishlist.php'){ echo 'class="nav-link active"';}else{ echo 'class="nav-link"';} ?>>My Wishlist</a></li>
         <li><a href="<?php echo $base_url;?>my-order" <?php if($current_page == 'my-order.php' || $current_page == 'view-order.php'){ echo 'class="nav-link active"';}else{ echo 'class="nav-link"';} ?>>My Order</a></li>
+        <li><a href="<?php echo $base_url1;?>add-support" <?php if($current_page == 'add-support.php'){ echo 'class="nav-link active"';}else{ echo 'class="nav-link"';} ?>>Support</a></li>
         <li><a href="<?php echo $base_url;?>logout">logout</a></li>
     </ul>
-</div>
+</div> 

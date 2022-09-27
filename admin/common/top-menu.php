@@ -23,6 +23,7 @@
                     <li><a href="<?php echo $base_url; ?>view-services-request"><i class="icon-play4"></i>Request Services Master</a></li>
                     <li><a href="<?php echo $base_url; ?>view-profile-messages"><i class="icon-play4"></i>Celebrity Messages</a></li>
                     <li><a href="<?php echo $base_url; ?>view-spoken-language"><i class="icon-play4"></i>Spoken Language Master</a></li>
+                    <li><a href="<?php echo $base_url; ?>view-support"><i class="icon-play4"></i>Support Master</a></li>
                 </ul>
             </li>
             <li class="dropdown">

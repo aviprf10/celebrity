@@ -58,8 +58,8 @@ if ($brand == 1)
         }
         
         
-        $insert_brandpost_query = "INSERT INTO brand_post (title, category_id, sub_category_id,sort_description, full_description, price, validate_days, created_on, added_by, status, is_deleted) 
-        VALUES ('$brand_name','$category_id','$sub_category_id','$sort_description','$full_description','$price', '$validate_days','$created_on','$loggedin_user_id','$status', '0')";
+        $insert_brandpost_query = "INSERT INTO brand_post (title, category_id, sub_category_id,sort_description, full_description, price, validate_days, created_on, added_by, status, payment_status, is_deleted) 
+        VALUES ('$brand_name','$category_id','$sub_category_id','$sort_description','$full_description','$price', '$validate_days','$created_on','$loggedin_user_id','$status', '0','0')";
         $result_insert_brandpost_query = mysqli_query($db_mysqli, $insert_brandpost_query);
         $last_id = mysqli_insert_id($db_mysqli);
         if($result_insert_brandpost_query)
@@ -97,7 +97,10 @@ if ($brand == 1)
                 $email_array['price'] = $price;
                 $email_array['email_type'] = 3;
                 $email_sent_response = send_email($email_array);
+                
             }
+
+
             $return["html_message"] = 'Brand Post added successfully.';
             $return["status"] = "success";
             echo json_encode($return);

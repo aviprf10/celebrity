@@ -267,10 +267,10 @@ if ($brand == 1)
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label>Brand Cost : <span class="text-danger">*</span></label>
+                                                            <label>Filter Brand Cost : <span class="text-danger">*</span></label>
                                                             <input type="text" class="form-control" id="price"
                                                                 name="price"
-                                                                placeholder="Enter Brand Cost"
+                                                                placeholder="Enter Filter Brand Cost"
                                                                 data-parsley-required="true" value="<?php echo $price; ?>">
                                                         </div>
                                                     </div>

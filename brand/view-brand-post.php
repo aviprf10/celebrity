@@ -2,12 +2,140 @@
 include "common/config.php";    
 include "common/check_login.php";
 include "common/common_code.php";
-if($brand == 1)
-{
 
-    $module_full_name = 'Brand Post';
+if($brand == 1 || $_POST['email'])
+{
+    //echo '<pre>'; print_R($_GET); exit;
+    $module_full_name  = 'Brand Post';
     $module_short_name = 'Brand Post';
-    $module_name = 'brand-post';
+    $module_name       = 'brand-post';
+
+    $users_id = $_GET['id'];
+    $brand_post_id = $_GET['last_id'];
+    $get_user_query = "select * from brand_user where status='1' and is_deleted='0' and id='$users_id'";
+    $result_user_data = mysqli_query($db_mysqli,$get_user_query);
+    while ($row_user_data = mysqli_fetch_assoc($result_user_data))
+    {
+        $getuser_data_array[] = $row_user_data;
+    } 
+   
+    if(!isset($_SESSION))
+    {
+        session_start();
+    }
+
+    if ($getuser_data_array[0]['user_type'] == 1)/*admin*/
+    {
+        $_SESSION[$company_name_session . '_loggedin'] = 1;
+    }
+    else if ($getuser_data_array[0]['user_type'] == 3)/*member*/
+    {
+        $_SESSION[$company_name_session . '_loggedin'] = 3;
+    }
+    
+    $brand = 1;
+    $_SESSION['domain_link_' . $company_name_session] = $company_name_session;
+    $_SESSION['user_id_' . $company_name_session]= $getuser_data_array[0]['id'];
+    $_SESSION['user_email_' . $company_name_session] = $getuser_data_array[0]['email'];
+    $_SESSION['first_name_' . $company_name_session] = $getuser_data_array[0]['name'];
+    $_SESSION['user_name_link_' . $company_name_session] = $getuser_data_array[0]['user_unique_slug'];
+    $_SESSION['user_name_' . $company_name_session] = $getuser_data_array[0]['user_name'];
+    $_SESSION['mobile_' . $company_name_session] = $getuser_data_array[0]['mobile'];
+    $_SESSION['user_type_' . $company_name_session] = $getuser_data_array[0]['user_type'];
+    $_SESSION['mobile_access_token_' . $company_name_session] = $getuser_data_array[0]['mobile_access_token'];
+    $_SESSION['profile_pic_100' . $company_name_session] = $getuser_data_array[0]['profile_pic'];
+    $_SESSION['profile_pic_450' . $company_name_session] = $getuser_data_array[0]['profile_pic'];
+    
+    
+    $loggedin_user_id = $_SESSION['user_id_'.$company_name_session];
+    $loggedin_user_email = $_SESSION['user_email_'.$company_name_session];
+    $loggedin_user_first_name = $_SESSION['first_name_'.$company_name_session];
+    $loggedin_user_name_link = $_SESSION['user_name_link_'.$company_name_session];
+    $loggedin_user_name = $_SESSION['user_name_'.$company_name_session];
+    $loggedin_user_mobile = $_SESSION['mobile_'.$company_name_session];
+    $loggedin_user_type = $_SESSION['user_type_'.$company_name_session];
+    $loggedin_user_mobile_access_token = $_SESSION['mobile_access_token_'.$company_name_session];
+    $loggedin_user_total_user_cart_data = $_SESSION['total_user_cart_data_'.$company_name_session];
+    $loggedin_user_profile_pic_100 = $_SESSION['profile_pic_100'.$company_name_session];
+    $loggedin_user_profile_pic_450 = $_SESSION['profile_pic_450'.$company_name_session];
+    $loggedin_user_is_compete = $_SESSION['is_compete'.$company_name_session];
+    
+    if ((isset($_POST['mihpayid'])) || (Secure1($db_mysqli, $_POST['mod_of_payment']) == '2'))
+    {
+        $flag = "false";
+        $payment_id = 0;
+        $mihpayid = '';
+        if ($_POST['mihpayid'] != '')
+        {
+            $flag = "true";
+            $mihpayid = $_POST['mihpayid'];
+            $mode = $_POST['mode'];
+            $status = $_POST['status'];
+            $unmappedstatus = $_POST['unmappedstatus'];
+            $key = $_POST['key'];
+            $txnid = $_POST['txnid'];
+            $amount = $_POST['amount'];
+            $cardCategory = $_POST['cardCategory'];
+            $discount = $_POST['discount'];
+            $net_amount_debit = $_POST['net_amount_debit'];
+            $addedon = $_POST['addedon'];
+            $productinfo = $_POST['productinfo'];
+            $firstname = $_POST['firstname'];
+            $lastname = $_POST['lastname'];
+            $address1 = $_POST['address1'];
+            $address2 = $_POST['address2'];
+            $city = $_POST['city'];
+            $state = $_POST['state'];
+            $country = $_POST['country'];
+            $zipcode = $_POST['zipcode'];
+            $email = $_POST['email'];
+            $phone = $_POST['phone'];
+            $udf1 = $_POST['udf1'];
+            $udf2 = $_POST['udf2'];
+            $udf3 = $_POST['udf3'];
+            $udf4 = $_POST['udf4'];
+            $udf5 = $_POST['udf5'];
+            $udf6 = $_POST['udf6'];
+            $udf7 = $_POST['udf7'];
+            $udf8 = $_POST['udf8'];
+            $udf9 = $_POST['udf9'];
+            $udf10 = $_POST['udf10'];
+            $hash = $_POST['hash'];
+            $field1 = $_POST['field1'];
+            $field2 = $_POST['field2'];
+            $field3 = $_POST['field3'];
+            $field4 = $_POST['field4'];
+            $field5 = $_POST['field5'];
+            $field6 = $_POST['field6'];
+            $field7 = $_POST['field7'];
+            $field8 = $_POST['field8'];
+            $field9 = $_POST['field9'];
+            $payment_source = $_POST['payment_source'];
+            $PG_TYPE = $_POST['PG_TYPE'];
+            $bank_ref_num = $_POST['bank_ref_num'];
+            $bankcode = $_POST['bankcode'];
+            $error = $_POST['error'];
+            $error_Message = $_POST['error_Message'];
+            $cardnum = $_POST['cardnum'];
+            $cardhash = $_POST['cardhash'];
+            $issuing_bank = $_POST['issuing_bank'];
+            $card_type = $_POST['card_type'];
+            $created_on = date('Y-m-d H:i:s');
+
+            $insert_user_order_payment_query = "INSERT INTO brand_payment_details (`mihpayid`, `mode`, `status`, `unmappedstatus`, `paymentkey`, `txnid`, `amount`, `cardCategory`, `discount`, `net_amount_debit`, `addedon`, `productinfo`, `firstname`, `lastname`, `address1`, `address2`, `city`, `state`, `country`, `zipcode`, `email`, `phone`, `udf1`, `udf2`, `udf3`, `udf4`, `udf5`, `udf6`, `udf7`, `udf8`, `udf9`, `udf10`, `hash`, `field1`, `field2`, `field3`, `field4`, `field5`, `field6`, `field7`, `field8`, `field9`, `payment_source`, `PG_TYPE`, `bank_ref_num`, `bankcode`, `error`, `error_Message`, `cardnum`, `cardhash`, `issuing_bank`, `card_type`, `created_on`) VALUES ('$mihpayid', '$mode', '$status', '$unmappedstatus', '$paymentkey', '$txnid', '$amount', '$cardCategory', '$discount', '$net_amount_debit', '$addedon', '$productinfo', '$firstname', '$lastname', '$address1', '$address2', '$city', '$state', '$country', '$zipcode', '$email', '$phone', '$udf1', '$udf2', '$udf3', '$udf4', '$udf5', '$udf6', '$udf7', '$udf8', '$udf9', '$udf10', '$hash', '$field1', '$field2', '$field3', '$field4', '$field5', '$field6', '$field7', '$field8', '$field9', '$payment_source', '$PG_TYPE', '$bank_ref_num', '$bankcode', '$error', '$error_Message', '$cardnum', '$cardhash', '$issuing_bank', '$card_type', '$created_on')"; 
+            $user_order_payment_data_query = mysqli_query($db_mysqli, $insert_user_order_payment_query);
+            $payment_id = mysqli_insert_id($db_mysqli);
+
+            if($_POST['status'] =='success')
+            {
+                $update_category_query = "update brand_post set payment_status='Paid', payu_payment_id='$payment_id', mihpayid='$mihpayid' where id='$brand_post_id'";
+                $result_update_category_query = mysqli_query($db_mysqli, $update_category_query);
+                
+            }
+        }
+    }
+
+   
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -82,9 +210,9 @@ if($brand == 1)
                                             <th>Sr. No.</th>
                                             <th>Title</th>
                                             <th>Category</th>
-                                            <th>Sort Desc.</th>
                                             <th>Price</th>
                                             <th>Validate Days</th>
+                                            <th>Payment Status</th>
                                             <th>Status</th>
                                             <th class="text-center" width="200px">Actions</th>
                                         </tr>

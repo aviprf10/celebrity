@@ -131,7 +131,7 @@ if(isset($_POST))
             {
                 $_SESSION[$company_name_session . '_loggedin'] = 3;
             }
-
+ 
 
             $_SESSION['domain_link_' . $company_name_session] = $company_name_session;
             $_SESSION['user_is_member_' . $company_name_session] = $is_member;

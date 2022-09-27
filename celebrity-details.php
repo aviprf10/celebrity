@@ -3,6 +3,7 @@
 include "common/config.php";    
 include "common/check_login.php";
 include "common/common_code.php";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -280,6 +281,75 @@ include "common/common_code.php";
             </div>
         </section>
         <?php } ?>
+        <section class="section product-slider pb-0">
+            <div class="container">
+                <div class="row">
+                    <div class="section-header col-12">
+                        <h2 class="text-transform-none">More Celebrity</h2>
+                    </div>
+                </div>
+                <div class="productSlider grid-products">
+                <?php
+                if(count($related_user_list_data_array) > 0)
+                { 
+                    foreach($related_user_list_data_array as $user_list_data)
+                    {
+                        if($user_list_data['price_status'] == 1)
+                        {
+                            if ($user_list_data["discount_type"] == 'percentage')
+                            {
+                                $discount = $user_list_data['celebrity_price']*$user_list_data["discount"];
+                                $total_discountt = $discount/100;
+                                $total_discount = $user_list_data['celebrity_price']-$total_discountt;
+                            }
+                            else if($user_list_data["discount_type"] == 'price')
+                            {
+                                    $total_discount = $user_list_data['celebrity_price']-$user_list_data["discount"];
+                            }
+                        }
+                        else 
+                        {
+                            $total_discount = 'Comming Soon';
+                        }
+                        
+                ?>
+                    <div class="item">
+                        <div class="product-image">
+                            <a href="<?php echo $base_url; ?>celebrity-details/<?php echo $user_list_data['user_unique_slug']; ?>" class="product-img" title="<?php echo $user_list_data['user_name']; ?>">
+                                <?php if($user_list_data['profile_pic'] !=''){ ?>
+                                <img  src="<?php echo $cele_base_path_uploads ?>profile-pic/size_450/<?php echo $user_list_data['profile_pic'] ?>" alt="<?php echo $user_list_data['user_name']; ?>" title="<?php echo $user_list_data['user_name']; ?>" style="height: unset;">
+                                <?php }else{ ?>
+                                    <img src="<?php echo $base_url_images;?>1.jpg" alt="<?php echo $user_list_data['user_name']; ?>" title="<?php echo $user_list_data['user_name']; ?>">
+                                <?php } ?>    
+                            </a>
+                            <div class="button-set style0 d-none d-md-block">
+                                <ul>
+                                    <li><a class="btn-icon btn cartIcon pro-quickshop-popup" onclick="add_to_cart('<?php echo $user_list_data['id']; ?>')"  aria-controls="pro-quickshop1"><i class="icon an an-cart-l"></i> <span class="tooltip-label top">Add to Cart</span></a></li>
+                                    <li><a class="btn-icon" onclick="book_cart('<?php echo $user_list_data['id']; ?>')"><i class="icon an an-search-l"></i> <span class="tooltip-label top">Book Now</span></a></li>
+                                    <li><a class="btn-icon wishlist add-to-wishlist" onclick="add_to_wishlist('<?php echo $user_list_data['id']; ?>')"><i class="icon an an-heart-l"></i> <span class="tooltip-label top">Add To Wishlist</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="product-details text-center">
+                            <div class="product-name text-uppercase">
+                                <a href="<?php echo $base_url; ?>celebrity-details/<?php echo $user_list_data['user_unique_slug']; ?>"><?php echo $user_list_data['user_name']; ?></a>
+                            </div>
+                            <div class="product-price">
+                                <span class="old-price"><?php echo $selected_currency_icon;?> <?php echo $user_list_data['celebrity_price'];  ?></span>
+                                <span class="price"><?php echo $selected_currency_icon;?> <?php echo $total_discount;  ?></span>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                    } }else{ 
+                ?>
+                <p><b>No Product Available?</b></p>
+                <?php } ?>    
+                </div>
+            </div>
+        </section>
+           
+
 
         <!-- <section class="store-features style1 py-0" style="padding-top: 50px !important; padding-bottom: 20px !important;  background: gainsboro;">
             <div class="container">

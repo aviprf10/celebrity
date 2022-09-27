@@ -5,13 +5,13 @@ if ($brand == 1)
 {
     //error_reporting(-1);
 
-
+    
     $requestData = $_REQUEST;
     $columns = array(
         0 => 'bp.id',
         1 => 'bp.title',
         2 => 'bp.category_id',
-        3 => 'bp.sort_description',
+        3 => 'bp.payment_status',
         4 => 'bp.price',
         5 => 'bp.validate_days',
         6 => 'bp.id',
@@ -23,7 +23,7 @@ if ($brand == 1)
     $limit_end = $requestData['length'];
     $order_by = "order by " . $columns[$requestData['order'][0]['column']] . " " . $requestData['order'][0]['dir'];
 
-    $get_category_query = "select bp.*, c.category_name from brand_post bp left join category c on bp.category_id=c.id where $custom_filter $order_by LIMIT $limit_start,$limit_end";
+   echo $get_category_query = "select bp.*, c.category_name from brand_post bp left join category c on bp.category_id=c.id where $custom_filter $order_by LIMIT $limit_start,$limit_end";
     $result_get_category_query = mysqli_query($db_mysqli, $get_category_query);
 
     $count_get_category_query = "select bp.*, c.category_name from brand_post bp left join category c on bp.category_id=c.id where $custom_filter";
@@ -46,27 +46,35 @@ if ($brand == 1)
             $row_id = $all_category_table_data['id'];
             $title = $all_category_table_data['title'];
             $category_name = $all_category_table_data['category_name'];
-            $sort_description = $all_category_table_data['sort_description'];
+            $payment_status = $all_category_table_data['payment_status'];
             $price = $all_category_table_data['price'];
             $validate_days = $all_category_table_data['validate_days'];
             $status = $all_category_table_data['status'];
 
             $nestedData = array();
             $nestedData[] = $row_id;
-
             $nestedData[] = $title;
             $nestedData[] = $category_name;
-            $nestedData[] = substr($sort_description, 0, 100);
             $nestedData[] = $price;
             $nestedData[] = $validate_days.' days';
-            if ($status == '1')
+            if ($payment_status == 'Paid')
             {
-                $nestedData[] = '<span class="label label-success">Active</span>';
+                $nestedData[] = '<span class="btn btn-success" style="font-size: 9px; padding: 3px;">Paid</span>';
             }
             else
             {
-                $nestedData[] = '<span class="label label-danger">Inactive</span>';
+                $nestedData[] = '<span class="btn btn-danger" style="font-size: 9px; padding: 3px;">Unpaid</span>';
             }
+            if ($status == '1')
+            {
+                $nestedData[] = '<span class="btn btn-success" style="font-size: 9px; padding: 3px;">Active</span>';
+            }
+            else
+            {
+                $nestedData[] = '<span class="btn btn-danger" style="font-size: 9px; padding: 3px;">Inactive</span>';
+            }
+
+           
 
             $nestedData[] = '
                 <center>

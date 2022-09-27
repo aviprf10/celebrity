@@ -864,11 +864,11 @@ if ($user == 1 || $_POST['email'])
             {
                 session_start();
             }
-            if ($$getuser_data_array[0]['user_type'] == 1)/*admin*/
+            if ($getuser_data_array[0]['user_type'] == 1)/*admin*/
             {
                 $_SESSION[$company_name_session . '_loggedin'] = 1;
             }
-            else if ($$getuser_data_array[0]['user_type'] == 3)/*member*/
+            else if ($getuser_data_array[0]['user_type'] == 3)/*member*/
             {
                 $_SESSION[$company_name_session . '_loggedin'] = 3;
             }

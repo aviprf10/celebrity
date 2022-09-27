@@ -116,6 +116,9 @@ RewriteRule ^edit-celebrity-price/([a-zA-Z0-9_-]+)/$ edit-celebrity-price.php?id
 RewriteRule ^view-payment$ view-payment.php
 RewriteRule ^view-payment/$ view-payment.php/
 
+RewriteRule ^add-support$ add-support.php
+RewriteRule ^add-support/$ add-support.php/
+
 
 # compress text, html, javascript, css, xml:
 <IfModule mod_deflate.c>

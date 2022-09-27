@@ -42,6 +42,17 @@
                     </li>
                  </ul>
             </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
+                    <i class="icon-cogs position-left"></i> Support <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu width-200">
+                    <li class="dropdown"> <a href="<?php echo $base_url; ?>add-support" >
+                            <i class="icon-users position-left"></i> Support
+                        </a>
+                    </li>
+                 </ul>
+            </li>
         </ul>
     </div>
 </div>
